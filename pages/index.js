@@ -4,11 +4,16 @@ const index = () => {
   return (
     <>
       HeroBanner
-      <div>
-        <h2>Best Smelling Products</h2>
+      <div className="products-heading">
+        <h2 >Best Selling Products</h2>
         <p>Speakers Dat PLOP</p>
       </div>
-      <div>{["Product 1", "Product 2"].map((product) => product)}</div>
+
+      <div className="products-container">
+        {["Product 1", "Product 2"].map((product) => product)}
+      </div>
+
+      Footer
     </>
   );
 };
