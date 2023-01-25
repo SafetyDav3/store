@@ -7,6 +7,8 @@ import {
   AiFillStar,
 } from "react-icons/ai";
 
+import  Product  from "../../components/Product";
+
 const ProductDetails = ({ product, products }) => {
   const { image, name, details, price } = product;
   return (
@@ -40,22 +42,36 @@ const ProductDetails = ({ product, products }) => {
           <div className="quantity">
             <h3>Quantity: </h3>
             <p className="quantity-desc">
-              <span className="minus" onclick="">
+              <span className="minus" onClick="">
                 <AiOutlineMinus />
               </span>
-              <span className="num" onclick="">
+              <span className="num" onClick="">
                 0
               </span>
-              <span className="plus" onclick="">
+              <span className="plus" onClick="">
                 <AiOutlinePlus />
               </span>
             </p>
           </div>
           <div className="buttons">
-            <button type="button" className="add-to-cart" onclick="">Add to cart</button>
-            <button type="button" className="buy-now" onclick="">Buy Now</button>
+            <button type="button" className="add-to-cart" onClick="">
+              Add to cart
+            </button>
+            <button type="button" className="buy-now" onClick="">
+              Buy Now
+            </button>
           </div>
         </div>
+      </div>
+      <div className="maylike-products-wrapper">
+          <h2>You may also like</h2>
+          <div className="marquee">
+            <div className="maylike-products-container track">
+              {products.map((item) => (
+                <Product key={item._id} product={item} />
+              ))}
+            </div>
+          </div>
       </div>
     </div>
   );
