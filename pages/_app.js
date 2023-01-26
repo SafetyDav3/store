@@ -1,11 +1,21 @@
-import '@/styles/globals.css'
-import { Layout } from '../components'
-import '../styles/globals.css'
+import React from "react";
 
-export default function App({ Component, pageProps }) {
+import "../styles/globals.css";
+import "../styles/globals.css";
+
+import { Layout } from "../components";
+import { Toaster } from "react-hot-toast";
+import { StateContext } from "../context/StateContext";
+
+function App({ Component, pageProps }) {
   return (
-  <Layout>
-    <Component {...pageProps} />
-  </Layout>
-  )
+    <StateContext>
+      <Layout>
+        <Toaster />
+        <Component {...pageProps} />
+      </Layout>
+    </StateContext>
+  );
 }
+
+export default App;
