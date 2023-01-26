@@ -13,7 +13,8 @@ import { useStateContext } from "../../context/StateContext";
 const ProductDetails = ({ product, products }) => {
   const { image, name, details, price } = product;
   const [index, setIndex] = useState(0);
-  const { decQty, incQty, qty } = useStateContext;
+  const { decQty, incQty, qty } = useStateContext();
+  
   return (
     <div>
       <div className="product-detail-container">
@@ -55,13 +56,13 @@ const ProductDetails = ({ product, products }) => {
           <div className="quantity">
             <h3>Quantity: </h3>
             <p className="quantity-desc">
-              <span className="minus" onClick="">
+              <span className="minus" onClick={decQty}>
                 <AiOutlineMinus />
               </span>
-              <span className="num" onClick="">
-                0
+              <span className="num" >
+                {qty}
               </span>
-              <span className="plus" onClick="">
+              <span className="plus" onClick={incQty}>
                 <AiOutlinePlus />
               </span>
             </p>
